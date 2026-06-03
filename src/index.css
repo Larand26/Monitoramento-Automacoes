@@ -1,1 +1,52 @@
 @import "tailwindcss";
+
+:root {
+  --bg-body: #0f172a;
+  --bg-card-1: #1e293b;
+  --bg-card-2: #334155;
+  --bg-card-3: #495c78;
+
+  --txt-primary: #f8fafc;
+  --txt-secondary: #94a3b8;
+
+  --semantic-green: #1dac52;
+  --semantic-yellow: #cd8409;
+  --semantic-red: #c23131;
+  --semantic-blue: #2c6ad1;
+
+  --btn-primary: #6366f1;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--txt-primary);
+  font-family: "Inter", sans-serif;
+}
+
+.bg-card-1 {
+  background-color: var(--bg-card-1);
+}
+.bg-card-2 {
+  background-color: var(--bg-card-2);
+}
+.bg-card-3 {
+  background-color: var(--bg-card-3);
+}
+.txt-primary {
+  color: var(--txt-primary);
+}
+.txt-secondary {
+  color: var(--txt-secondary);
+}
+.semantic-green {
+  color: var(--semantic-green);
+}
+.semantic-yellow {
+  color: var(--semantic-yellow);
+}
+.semantic-red {
+  color: var(--semantic-red);
+}
+.semantic-blue {
+  color: var(--semantic-blue);
+}
