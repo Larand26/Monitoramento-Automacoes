@@ -45,6 +45,9 @@ body {
 .semantic-yellow {
   color: var(--semantic-yellow);
 }
+.border-semantic-yellow {
+  border-color: var(--semantic-yellow);
+}
 .semantic-red {
   color: var(--semantic-red);
 }
@@ -53,4 +56,7 @@ body {
 }
 .semantic-blue {
   color: var(--semantic-blue);
+}
+.border-semantic-blue {
+  border-color: var(--semantic-blue);
 }
