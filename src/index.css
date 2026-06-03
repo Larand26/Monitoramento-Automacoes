@@ -29,7 +29,6 @@ body {
 }
 .border-card {
   border-color: var(--border-card);
-  border-width: 3px;
 }
 .txt-primary {
   color: var(--txt-primary);
