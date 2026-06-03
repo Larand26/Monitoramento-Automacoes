@@ -1,15 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/imgs/sma-logo.svg";
 
-export default function NavBar(props: { pageActive?: string }) {
+export type NavBarPage = "home" | "dashboards" | "logs";
+
+type NavBarProps = {
+  pageActive?: NavBarPage;
+};
+
+export default function NavBar(props: NavBarProps) {
   const navigate = useNavigate();
   const home = props.pageActive === "home" ? "txt-secondary" : "txt-primary";
   const linkStyle =
     "font-medium hover:txt-secondary transition-colors duration-300 cursor-pointer hover:underline";
   const dashboards =
     props.pageActive === "dashboards" ? "txt-secondary" : "txt-primary";
-  const historicos =
-    props.pageActive === "historicos" ? "txt-secondary" : "txt-primary";
+  const logs = props.pageActive === "logs" ? "txt-secondary" : "txt-primary";
 
   const windowNavigate = (path: string) => {
     navigate(path);
@@ -43,7 +48,7 @@ export default function NavBar(props: { pageActive?: string }) {
           <button
             type="button"
             onClick={() => windowNavigate("/logs")}
-            className={`${linkStyle} ${historicos}`}
+            className={`${linkStyle} ${logs}`}
           >
             Logs
           </button>
