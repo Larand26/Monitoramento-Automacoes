@@ -1,6 +1,6 @@
 export interface iLog {
   jobName: string;
-  runId: string;
+  runId: number;
   environment: string;
   status: "success" | "error" | "warning" | "running";
   startedAt: Date;

@@ -1,7 +1,7 @@
 export const logs = [
   {
     jobName: "Automação 1",
-    runId: "run-1",
+    runId: 1,
     environment: "produção",
     status: "success",
     startedAt: new Date("2026-01-01T00:00:00Z"),
@@ -12,7 +12,7 @@ export const logs = [
   },
   {
     jobName: "Automação 2",
-    runId: "run-2",
+    runId: 2,
     environment: "produção",
     status: "error",
     startedAt: new Date("2026-01-01T00:10:00Z"),
@@ -23,7 +23,7 @@ export const logs = [
   },
   {
     jobName: "Automação 3",
-    runId: "run-3",
+    runId: 3,
     environment: "produção",
     status: "running",
     startedAt: new Date("2026-01-01T00:20:00Z"),
@@ -34,7 +34,7 @@ export const logs = [
   },
   {
     jobName: "Automação 4",
-    runId: "run-4",
+    runId: 4,
     environment: "produção",
     status: "warning",
     startedAt: new Date("2026-01-01T00:20:00Z"),

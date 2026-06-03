@@ -1,0 +1,37 @@
+[
+  {
+    "label": "id",
+    "camp": "runId",
+    "format": "number"
+  },
+  {
+    "label": "Automação",
+    "camp": "jobName",
+    "format": "string"
+  },
+  {
+    "label": "Status",
+    "camp": "status",
+    "format": "string"
+  },
+  {
+    "label": "Ambiente",
+    "camp": "environment",
+    "format": "string"
+  },
+  {
+    "label": "Início",
+    "camp": "startedAt",
+    "format": "date-time"
+  },
+  {
+    "label": "Fim",
+    "camp": "finishedAt",
+    "format": "date-time"
+  },
+  {
+    "label": "Duração",
+    "camp": "duration",
+    "format": "time-ms"
+  }
+]
