@@ -40,11 +40,17 @@ body {
 .semantic-green {
   color: var(--semantic-green);
 }
+.border-semantic-green {
+  border-color: var(--semantic-green);
+}
 .semantic-yellow {
   color: var(--semantic-yellow);
 }
 .semantic-red {
   color: var(--semantic-red);
+}
+.border-semantic-red {
+  border-color: var(--semantic-red);
 }
 .semantic-blue {
   color: var(--semantic-blue);

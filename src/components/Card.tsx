@@ -1,6 +1,11 @@
-export default function Card(props: { children?: React.ReactNode }) {
+export default function Card(props: {
+  children?: React.ReactNode;
+  className?: string;
+  noBg?: boolean;
+}) {
+  const baseStyle = `${props.noBg ? "" : "bg-card-1 border-card border"} w-full rounded-lg shadow-md p-4`;
   return (
-    <div className="bg-card-1 border-card border w-full h-64 rounded-lg shadow-md p-4">
+    <div className={`${baseStyle} ${props.className || ""}`}>
       {props.children}
     </div>
   );
