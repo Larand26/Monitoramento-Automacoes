@@ -1,7 +1,13 @@
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/home/Home";
+
 export default function App() {
   return (
-    <div className="App">
-      <h1>App</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
