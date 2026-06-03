@@ -2,7 +2,7 @@ import Card from "./Card";
 
 export default function CardStatistics(props: {
   title: string;
-  value: string;
+  value: number;
   error?: boolean;
   success?: boolean;
 }) {
