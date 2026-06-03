@@ -2,6 +2,9 @@ import NavBar from "../../components/NavBar";
 import CardStatistics from "../../components/CardStatistics";
 import CardAutomation from "../../components/CardAutomation";
 
+import type { iLog } from "../../interfaces/interfaces";
+import { logs } from "../../data/logs";
+
 export default function Home() {
   return (
     <div className="w-full h-screen flex flex-col items-center">
@@ -17,18 +20,9 @@ export default function Home() {
         </div>
         {/* Automations */}
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
-          <CardAutomation />
-          <CardAutomation />
-          <CardAutomation />
-          <CardAutomation />
-          <CardAutomation />
-          <CardAutomation />
-          <CardAutomation />
-          <CardAutomation />
-          <CardAutomation />
-          <CardAutomation />
-          <CardAutomation />
-          <CardAutomation />
+          {logs.map((log) => (
+            <CardAutomation key={log.runId} log={log as iLog} />
+          ))}
         </div>
       </div>
     </div>
