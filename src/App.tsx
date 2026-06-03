@@ -1,4 +1,9 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import Home from "./pages/home/Home";
 import Dashboards from "./pages/dashboards/Dashboards";
@@ -11,6 +16,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/dashboards" element={<Dashboards />} />
         <Route path="/logs" element={<Logs />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
