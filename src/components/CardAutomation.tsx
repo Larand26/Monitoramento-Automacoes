@@ -4,7 +4,7 @@ import Flag from "./Flag";
 export default function CardAutomation() {
   return (
     <Card className="relative">
-      <Flag variant="running" />
+      <Flag variant="success" />
 
       <h2 className="text-2xl font-bold">Automação 1</h2>
       <div className="flex gap-4">
