@@ -9,10 +9,10 @@ export default function CardStatistics(props: {
   const errorTextStyle = props.error ? "semantic-red" : "";
   const successTextStyle = props.success ? "semantic-green" : "";
   const errorCardStyle = props.error
-    ? "border-semantic-red bg-red-900/20 border-3"
+    ? "border-semantic-red bg-red-900/20 border"
     : "";
   const successCardStyle = props.success
-    ? "border-semantic-green bg-green-900/20 border-3"
+    ? "border-semantic-green bg-green-900/20 border"
     : "";
   return (
     <Card
