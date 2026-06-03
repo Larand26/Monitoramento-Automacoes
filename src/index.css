@@ -2,9 +2,10 @@
 
 :root {
   --bg-body: #0f172a;
+
   --bg-card-1: #1e293b;
-  --bg-card-2: #334155;
-  --bg-card-3: #495c78;
+
+  --border-card: #334155;
 
   --txt-primary: #f8fafc;
   --txt-secondary: #94a3b8;
@@ -26,11 +27,9 @@ body {
 .bg-card-1 {
   background-color: var(--bg-card-1);
 }
-.bg-card-2 {
-  background-color: var(--bg-card-2);
-}
-.bg-card-3 {
-  background-color: var(--bg-card-3);
+.border-card {
+  border-color: var(--border-card);
+  border-width: 3px;
 }
 .txt-primary {
   color: var(--txt-primary);
