@@ -31,29 +31,40 @@ function formatCellValue(value: unknown, format?: string) {
 
 export default function Table({ data, options }: TableProps) {
   return (
-    <div className="w-full">
-      <table className="w-full border-collapse">
-        <thead>
-          <tr>
-            {options.map((column) => (
-              <th key={column.camp} className="p-2 text-left border-b">
-                {column.label}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row, rowIndex) => (
-            <tr key={`row-${rowIndex}`}>
+    <div className="w-full overflow-hidden rounded-xl border border-slate-700/70 bg-slate-800/60 shadow-[0_12px_30px_rgba(15,23,42,0.35)] backdrop-blur-sm">
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse text-sm text-slate-100">
+          <thead className="bg-slate-900/80 text-slate-200">
+            <tr>
               {options.map((column) => (
-                <td key={`${column.camp}-${rowIndex}`} className="p-2 border-b">
-                  {formatCellValue(row[column.camp], column.format)}
-                </td>
+                <th
+                  key={column.camp}
+                  className="px-6 py-4 text-left text-[13px] font-semibold tracking-wide border-b border-slate-700/70 first:pl-5 last:pr-5"
+                >
+                  {column.label}
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="divide-y divide-slate-700/70">
+            {data.map((row, rowIndex) => (
+              <tr
+                key={`row-${rowIndex}`}
+                className="transition-colors duration-150 odd:bg-slate-700/35 even:bg-slate-700/20 hover:bg-slate-600/40"
+              >
+                {options.map((column) => (
+                  <td
+                    key={`${column.camp}-${rowIndex}`}
+                    className="px-6 py-4 text-[13px] font-semibold text-slate-100 first:pl-5 last:pr-5"
+                  >
+                    {formatCellValue(row[column.camp], column.format)}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
