@@ -7,7 +7,7 @@ export default function CardAutomation(props: { log?: iLog }) {
 
   return (
     <Card className="relative">
-      <Flag variant={log?.status || "running"} />
+      <Flag variant={log?.status || "running"} absolute />
 
       <h2 className="text-2xl font-bold">{log?.jobName}</h2>
       <div className="flex gap-4">

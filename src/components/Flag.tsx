@@ -31,13 +31,14 @@ const options = {
 
 export default function Flag(props: {
   variant: "success" | "error" | "warning" | "running";
+  absolute?: boolean;
 }) {
   const span = options[props.variant]?.text || "";
   const style = options[props.variant]?.style || "";
   const icon = options[props.variant]?.icon;
   return (
     <div
-      className={`flex items-center justify-between ${style} absolute top-4 right-4 px-2 py-1 rounded-full text-sm font-bold min-w-30`}
+      className={`flex items-center justify-between ${style} ${props.absolute ? "absolute" : ""} top-4 right-4 px-2 py-1 rounded-full text-sm font-bold min-w-20`}
     >
       <span>{span}</span>
       <FontAwesomeIcon icon={icon} />

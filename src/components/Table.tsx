@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import Flag from "./Flag";
 
 interface TableOption {
   label: string;
@@ -26,10 +27,10 @@ function formatCellValue(value: unknown, format?: string) {
 
   if (format === "status") {
     const statusMap: Record<string, React.ReactNode> = {
-      success: <span className="semantic-green">Sucesso</span>,
-      error: <span className="semantic-red">Erro</span>,
-      warning: <span className="semantic-yellow">Aviso</span>,
-      running: <span className="semantic-blue">Em execução</span>,
+      success: <Flag variant="success" />,
+      error: <Flag variant="error" />,
+      warning: <Flag variant="warning" />,
+      running: <Flag variant="running" />,
     };
     return statusMap[String(value)] || String(value);
   }
