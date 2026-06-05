@@ -11,9 +11,15 @@ interface TableProps {
   options: TableOption[];
 }
 
-function formatCellValue(value: unknown) {
-  if (value instanceof Date) {
+function formatCellValue(value: unknown, format?: string) {
+  if (value instanceof Date && format === "date-time") {
     return value.toLocaleString("pt-BR");
+  }
+
+  if (typeof value === "number" && format === "time-ms") {
+    const minutes = Math.floor(value / 60000);
+    const seconds = Math.floor((value % 60000) / 1000);
+    return `${minutes}m ${seconds}s`;
   }
 
   if (value === null || value === undefined) {
@@ -41,7 +47,7 @@ export default function Table({ data, options }: TableProps) {
             <tr key={`row-${rowIndex}`}>
               {options.map((column) => (
                 <td key={`${column.camp}-${rowIndex}`} className="p-2 border-b">
-                  {formatCellValue(row[column.camp])}
+                  {formatCellValue(row[column.camp], column.format)}
                 </td>
               ))}
             </tr>

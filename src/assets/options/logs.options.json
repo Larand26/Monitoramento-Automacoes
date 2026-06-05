@@ -31,7 +31,7 @@
   },
   {
     "label": "Duração",
-    "camp": "duration",
+    "camp": "durationMs",
     "format": "time-ms"
   }
 ]
