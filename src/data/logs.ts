@@ -1,4 +1,6 @@
-export const logs = [
+import type { iLog } from "../interfaces/interfaces";
+
+export const logs: iLog[] = [
   {
     jobName: "Automação 1",
     runId: 1,
@@ -40,7 +42,7 @@ export const logs = [
     startedAt: new Date("2026-01-01T00:20:00Z"),
     finishedAt: undefined,
     durationMs: 0,
-    message: "Aviso: Problemas encontrados durante a execução.",
+    message: "Aviso: Teste teste.",
     details: {},
   },
   {

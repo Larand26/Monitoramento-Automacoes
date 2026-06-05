@@ -1,15 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 
-type TableRow = Record<string, unknown>;
-
 interface TableOption {
   label: string;
   camp: string;
   format?: string;
 }
 
-interface TableProps {
-  data: TableRow[];
+interface TableProps<T extends object> {
+  data: T[];
   options: TableOption[];
 }
 
@@ -43,7 +41,10 @@ function formatCellValue(value: unknown, format?: string) {
   return String(value);
 }
 
-export default function Table({ data, options }: TableProps) {
+export default function Table<T extends object>({
+  data,
+  options,
+}: TableProps<T>) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.max(1, Math.ceil(data.length / ITEMS_PER_PAGE));
@@ -86,7 +87,10 @@ export default function Table({ data, options }: TableProps) {
                     key={`${column.camp}-${rowIndex}`}
                     className="px-6 py-3 text-[13px] font-semibold text-slate-100 first:pl-5 last:pr-5"
                   >
-                    {formatCellValue(row[column.camp], column.format)}
+                    {formatCellValue(
+                      row[column.camp as keyof T],
+                      column.format,
+                    )}
                   </td>
                 ))}
               </tr>

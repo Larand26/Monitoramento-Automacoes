@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import NavBar from "../../components/NavBar";
 import CardStatistics from "../../components/CardStatistics";
 import CardAutomation from "../../components/CardAutomation";
@@ -8,16 +6,20 @@ import type { iLog } from "../../interfaces/interfaces";
 import { logs } from "../../data/logs";
 
 export default function Home() {
-  const [logsState, setLogsState] = useState(logs);
+  const latestLogsByAutomation: iLog[] = Array.from(
+    new Map(
+      [...logs].reverse().map((log) => [log.jobName, log] as const),
+    ).values(),
+  ).reverse();
 
-  const totalAutomations = logsState.length;
-  const automationsRunning = logsState.filter(
+  const totalAutomations = latestLogsByAutomation.length;
+  const automationsRunning = latestLogsByAutomation.filter(
     (log) => log.status === "running",
   ).length;
-  const automationsErrors = logsState.filter(
+  const automationsErrors = latestLogsByAutomation.filter(
     (log) => log.status === "error",
   ).length;
-  const automationsSuccess = logsState.filter(
+  const automationsSuccess = latestLogsByAutomation.filter(
     (log) => log.status === "success",
   ).length;
 
@@ -49,8 +51,8 @@ export default function Home() {
         </div>
         {/* Automations */}
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
-          {logsState.map((log) => (
-            <CardAutomation key={log.runId} log={log as iLog} />
+          {latestLogsByAutomation.map((log) => (
+            <CardAutomation key={log.jobName} log={log} />
           ))}
         </div>
       </div>
