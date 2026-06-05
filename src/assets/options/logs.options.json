@@ -12,7 +12,7 @@
   {
     "label": "Status",
     "camp": "status",
-    "format": "string"
+    "format": "status"
   },
   {
     "label": "Ambiente",

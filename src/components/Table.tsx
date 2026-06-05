@@ -26,6 +26,16 @@ function formatCellValue(value: unknown, format?: string) {
     return `${minutes}m ${seconds}s`;
   }
 
+  if (format === "status") {
+    const statusMap: Record<string, React.ReactNode> = {
+      success: <span className="semantic-green">Sucesso</span>,
+      error: <span className="semantic-red">Erro</span>,
+      warning: <span className="semantic-yellow">Aviso</span>,
+      running: <span className="semantic-blue">Em execução</span>,
+    };
+    return statusMap[String(value)] || String(value);
+  }
+
   if (value === null || value === undefined) {
     return "-";
   }
@@ -94,7 +104,7 @@ export default function Table({ data, options }: TableProps) {
             type="button"
             onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
             disabled={currentPage === 1}
-            className="rounded-lg border border-slate-600 bg-slate-800 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-lg border border-slate-600 bg-slate-800 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
           >
             Anterior
           </button>
@@ -104,7 +114,7 @@ export default function Table({ data, options }: TableProps) {
               setCurrentPage((page) => Math.min(totalPages, page + 1))
             }
             disabled={currentPage === totalPages}
-            className="rounded-lg bg-sky-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-lg bg-sky-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
           >
             Próxima
           </button>
