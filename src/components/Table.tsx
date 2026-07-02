@@ -47,13 +47,22 @@ export default function Table<T extends object>({
   options,
 }: TableProps<T>) {
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const totalPages = Math.max(1, Math.ceil(data.length / ITEMS_PER_PAGE));
 
   const visibleRows = useMemo(() => {
+    const filteredData = data.filter((row) =>
+      options.some((column) => {
+        const cellValue = row[column.camp as keyof T];
+        return String(cellValue)
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      }),
+    );
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    return data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-  }, [currentPage, data]);
+    return filteredData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [currentPage, data, searchTerm, options]);
 
   useEffect(() => {
     if (currentPage > totalPages) {
@@ -66,6 +75,20 @@ export default function Table<T extends object>({
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-sm text-slate-100">
           <thead className="bg-slate-900/95 text-slate-200">
+            <tr>
+              <th
+                colSpan={options.length}
+                className="sticky top-0 z-10 border-b border-slate-700/70 bg-slate-900/95 px-6 py-4 text-left text-[13px] font-semibold tracking-wide first:pl-5 last:pr-5"
+              >
+                <input
+                  type="text"
+                  placeholder="Pesquisar..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="bg-slate-800 text-slate-300 placeholder:text-slate-500 border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:outline-none rounded-lg px-3 py-2"
+                />
+              </th>
+            </tr>
             <tr>
               {options.map((column) => (
                 <th
