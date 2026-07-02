@@ -13,6 +13,17 @@ export const logs: iLog[] = [
     details: {},
   },
   {
+    jobName: "Automação 1",
+    runId: 1,
+    environment: "produção",
+    status: "error",
+    startedAt: new Date("2026-01-01T00:00:00Z"),
+    finishedAt: new Date("2026-01-01T00:05:00Z"),
+    durationMs: 300000,
+    message: "Automação concluída com sucesso.",
+    details: {},
+  },
+  {
     jobName: "Automação 2",
     runId: 2,
     environment: "produção",
