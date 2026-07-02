@@ -40,10 +40,10 @@ export default function CardGrafic(props: { logs?: iLog[] }) {
             label: "Status das automações",
             data: [successCount, errorCount, runningCount, warningCount],
             backgroundColor: [
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(255, 159, 64, 0.2)",
+              "rgba(75, 192, 95, 0.33)",
+              "rgba(255, 99, 133, 0.33)",
+              "rgba(100, 146, 245, 0.33)",
+              "rgba(255, 159, 64, 0.33)",
             ],
           },
         ],
@@ -76,12 +76,27 @@ export default function CardGrafic(props: { logs?: iLog[] }) {
             <span className="text-sm txt-secondary">Total de execuções: </span>
             <span className="text-sm">{logs?.length || 0}</span>
           </p>
-
           <p>
             <span className="text-sm txt-secondary">
               Porcentagem de acerto:{" "}
             </span>
             <span className="text-sm">{percentSuccess}%</span>
+          </p>
+          <p>
+            <span className="text-sm txt-secondary">
+              Quantidade de acertos:{" "}
+            </span>
+            <span className="text-sm">{successCount}</span>
+          </p>
+          <p>
+            <span className="text-sm txt-secondary">Quantidade de erros: </span>
+            <span className="text-sm">{errorCount}</span>
+          </p>
+          <p>
+            <span className="text-sm txt-secondary">
+              Quantidade de Avisos:{" "}
+            </span>
+            <span className="text-sm">{warningCount}</span>
           </p>
         </div>
         <div>
