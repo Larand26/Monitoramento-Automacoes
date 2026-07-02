@@ -10,6 +10,7 @@ interface TableOption {
 interface TableProps<T extends object> {
   data: T[];
   options: TableOption[];
+  openDetailsLog?: (log: T) => void;
 }
 
 const ITEMS_PER_PAGE = 8;
@@ -45,6 +46,7 @@ function formatCellValue(value: unknown, format?: string) {
 export default function Table<T extends object>({
   data,
   options,
+  openDetailsLog = () => {},
 }: TableProps<T>) {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
@@ -104,7 +106,8 @@ export default function Table<T extends object>({
             {visibleRows.map((row, rowIndex) => (
               <tr
                 key={`row-${rowIndex}`}
-                className="transition-colors duration-150 odd:bg-slate-700/35 even:bg-slate-700/20 hover:bg-slate-600/40"
+                className="transition-colors duration-150 odd:bg-slate-700/35 even:bg-slate-700/20 hover:bg-slate-600/40 cursor-pointer"
+                onClick={() => openDetailsLog(row)}
               >
                 {options.map((column) => (
                   <td
